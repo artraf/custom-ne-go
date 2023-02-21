@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/equinix/ne-go/internal/api"
+	"github.com/artraf/custom-ne-go/internal/api"
 	"github.com/equinix/rest-go"
 )
 

@@ -4,7 +4,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/equinix/ne-go/internal/api"
+	"github.com/artraf/custom-ne-go/internal/api"
 )
 
 //UploadLicenseFile performs multipart upload of a license file from a given reader interface

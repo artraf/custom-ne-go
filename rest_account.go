@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/equinix/ne-go/internal/api"
+	"github.com/artraf/custom-ne-go/internal/api"
 )
 
 //GetAccounts retrieves accounts and their details for a given metro code using Network Edge API

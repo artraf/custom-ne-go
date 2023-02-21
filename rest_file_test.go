@@ -3,7 +3,7 @@ package ne
 import (
 	"context"
 	"fmt"
-	"github.com/equinix/ne-go/internal/api"
+	"github.com/artraf/custom-ne-go/internal/api"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
 	"net/http"

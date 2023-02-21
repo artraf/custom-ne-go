@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/equinix/ne-go/internal/api"
+	"github.com/artraf/custom-ne-go/internal/api"
 )
 
 //GetSSHPublicKeys retrieves list of available SSH public keys

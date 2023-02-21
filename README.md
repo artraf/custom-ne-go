@@ -3,8 +3,8 @@
 Equinix Network Edge (NE) client library written in Go.
 
 [![Build Status](https://travis-ci.com/equinix/ne-go.svg?branch=master)](https://travis-ci.com/github/equinix/ne-go)
-[![Go Report Card](https://goreportcard.com/badge/github.com/equinix/ne-go)](https://goreportcard.com/report/github.com/equinix/ne-go)
-[![GoDoc](https://godoc.org/github.com/equinix/ne-go?status.svg)](https://godoc.org/github.com/equinix/ne-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/artraf/custom-ne-go)](https://goreportcard.com/report/github.com/artraf/custom-ne-go)
+[![GoDoc](https://godoc.org/github.com/artraf/custom-ne-go?status.svg)](https://godoc.org/github.com/artraf/custom-ne-go)
 ![GitHub](https://img.shields.io/github/license/equinix/ne-go)
 
 ---
@@ -30,7 +30,7 @@ and it is not providing full capabilities of Equinix Network Edge API
    ```go
    import (
    "github.com/equinix/oauth2-go"
-   "github.com/equinix/ne-go"
+   "github.com/artraf/custom-ne-go"
    )
    ```
 
