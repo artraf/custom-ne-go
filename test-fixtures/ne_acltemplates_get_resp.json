@@ -1,0 +1,83 @@
+{
+    "pagination": {
+        "offset": 0,
+        "limit": 100,
+        "total": 2
+    },
+    "data": [
+        {
+            "name": "test",
+            "uuid": "57802215-2bef-47e9-92f8-d7b8c83af381",
+            "description": "desc",
+            "inboundRules": [
+                {
+                    "srcType": "DOMAIN",
+                    "seqNo": 1,
+                    "fqdn": "equinix.com",
+                    "subnets": [
+                        "216.221.225.13/32"
+                    ],
+                    "protocol": "IP",
+                    "srcPort": "any",
+                    "dstPort": "any",
+                    "description": "Description of the rule"
+                }
+            ],
+            "metroName": "Sydney",
+            "metroCode": "SY",
+            "virtualDeviceName": "",
+            "virtualDeviceUUID": "",
+            "deviceAclstatus": "",
+            "createdBy": "user",
+            "createdDate": "2020-10-05T21:19:15.912Z",
+            "virtualDeviceDetails": [
+                {
+                    "name": "test_device1",
+                    "uuid": "7e9bf92a-2189-4474-a181-81039c0ccfb1",
+                    "aclStatus": "PROVISIONED"
+                },
+                {
+                    "name": "test_device2",
+                    "uuid": "e54ba802-29c5-4741-a1e5-81c89ca1f172",
+                    "aclStatus": "PROVISIONED"
+                }
+            ]
+        },
+        {
+            "name": "test-twp",
+            "uuid": "5a1102c6-d556-4498-b7ca-a10e902ef783",
+            "description": "des",
+            "inboundRules": [
+                {
+                    "srcType": "SUBNET",
+                    "seqNo": 1,
+                    "subnets": [
+                        "15.0.0.0/16"
+                    ],
+                    "protocol": "IP",
+                    "srcPort": "any",
+                    "dstPort": "any"
+                }
+            ],
+            "metroName": "Silicon Valley",
+            "metroCode": "SV",
+            "virtualDeviceName": "NE_CSP_TEST_DEVICE_SV_SEC",
+            "virtualDeviceUUID": "35400805-1c84-46db-acd2-796273b86662",
+            "deviceAclstatus": "PROVISIONED",
+            "createdBy": "user",
+            "createdDate": "2020-10-05T02:31:38.867Z",
+            "virtualDeviceDetails": [
+                {
+                    "name": "test_device1",
+                    "uuid": "7e9bf92a-2189-4474-a181-81039c0ccfb1",
+                    "aclStatus": "PROVISIONED"
+                },
+                {
+                    "name": "test_device2",
+                    "uuid": "e54ba802-29c5-4741-a1e5-81c89ca1f172",
+                    "aclStatus": "PROVISIONED"
+                }
+            ]
+        }
+    ]
+}
