@@ -231,6 +231,7 @@ type Account struct {
 //Device describes Network Edge device
 type Device struct {
 	UUID                *string
+	ProjectId           *string
 	Name                *string
 	TypeCode            *string
 	Status              *string

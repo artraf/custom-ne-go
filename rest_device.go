@@ -349,6 +349,7 @@ func mapDeviceClusterNodeDetailDomainToAPI(clusterNodeDetail *ClusterNodeDetail)
 func createDeviceRequest(device Device) api.DeviceRequest {
 	req := api.DeviceRequest{}
 	req.Throughput = device.Throughput
+	req.ProjectId = device.ProjectId
 	req.ThroughputUnit = device.ThroughputUnit
 	req.MetroCode = device.MetroCode
 	req.DeviceTypeCode = device.TypeCode
@@ -397,6 +398,7 @@ func createRedundantDeviceRequest(primary Device, secondary Device) api.DeviceRe
 	req := createDeviceRequest(primary)
 	secReq := api.SecondaryDeviceRequest{}
 	secReq.MetroCode = secondary.MetroCode
+	secReq.ProjectId = secondary.ProjectId
 	secReq.LicenseToken = secondary.LicenseToken
 	secReq.LicenseFileID = secondary.LicenseFileID
 	secReq.CloudInitFileID = secondary.CloudInitFileID
