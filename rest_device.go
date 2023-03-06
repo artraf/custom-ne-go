@@ -199,6 +199,7 @@ func (req *restDeviceUpdateRequest) Execute() error {
 func mapDeviceAPIToDomain(apiDevice api.Device) *Device {
 	device := Device{}
 	device.UUID = apiDevice.UUID
+	device.ProjectId = apiDevice.ProjectId
 	device.Name = apiDevice.Name
 	device.TypeCode = apiDevice.DeviceTypeCode
 	device.Status = apiDevice.Status

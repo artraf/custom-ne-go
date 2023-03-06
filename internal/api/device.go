@@ -6,6 +6,7 @@ type Device struct {
 	Name                 *string                `json:"name,omitempty"`
 	DeviceTypeCode       *string                `json:"deviceTypeCode,omitempty"`
 	Status               *string                `json:"status,omitempty"`
+	ProjectId            *string                `json:"projectId,omitempty"`
 	LicenseStatus        *string                `json:"licenseStatus,omitempty"`
 	MetroCode            *string                `json:"metroCode,omitempty"`
 	IBX                  *string                `json:"ibx,omitempty"`
@@ -46,6 +47,7 @@ type Device struct {
 //DeviceRequest describes network edge device creation request
 type DeviceRequest struct {
 	Throughput           *int                        `json:"throughput,omitempty,string"`
+	ProjectId            *string                     `json:"projectId,omitempty"`
 	ThroughputUnit       *string                     `json:"throughputUnit,omitempty"`
 	MetroCode            *string                     `json:"metroCode,omitempty"`
 	DeviceTypeCode       *string                     `json:"deviceTypeCode,omitempty"`
@@ -78,6 +80,7 @@ type DeviceRequest struct {
 //SecondaryDeviceRequest describes secondary device part of device creation request
 type SecondaryDeviceRequest struct {
 	MetroCode           *string                     `json:"metroCode,omitempty"`
+	ProjectId           *string                     `json:"projectId,omitempty"`
 	LicenseToken        *string                     `json:"licenseToken,omitempty"`
 	LicenseFileID       *string                     `json:"licenseFileId,omitempty"`
 	CloudInitFileID     *string                     `json:"cloudInitFileId,omitempty"`
