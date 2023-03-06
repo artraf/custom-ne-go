@@ -375,6 +375,7 @@ func TestDeleteDevice(t *testing.T) {
 func verifyDevice(t *testing.T, device Device, resp api.Device) {
 	assert.Equal(t, resp.UUID, device.UUID, "UUID matches")
 	assert.Equal(t, resp.Name, device.Name, "Name matches")
+	assert.Equal(t, resp.ProjectId, device.ProjectId, "ProjectId matches")
 	assert.Equal(t, resp.DeviceTypeCode, device.TypeCode, "DeviceTypeCode matches")
 	assert.Equal(t, resp.Status, device.Status, "Status matches")
 	assert.Equal(t, resp.LicenseStatus, device.LicenseStatus, "LicenseStatus matches")
@@ -437,6 +438,7 @@ func verifyDeviceRequest(t *testing.T, device Device, req api.DeviceRequest) {
 	assert.Equal(t, device.Throughput, req.Throughput, "Throughput matches")
 	assert.Equal(t, device.ThroughputUnit, req.ThroughputUnit, "ThroughputUnit matches")
 	assert.Equal(t, device.MetroCode, req.MetroCode, "MetroCode matches")
+	assert.Equal(t, device.ProjectId, req.ProjectId, "ProjectId matches")
 	assert.Equal(t, device.TypeCode, req.DeviceTypeCode, "TypeCode matches")
 	termLengthStr := strconv.Itoa(*device.TermLength)
 	assert.Equal(t, &termLengthStr, req.TermLength, "TermLength matches")
@@ -473,6 +475,7 @@ func verifyDeviceRequest(t *testing.T, device Device, req api.DeviceRequest) {
 func verifyRedundantDeviceRequest(t *testing.T, primary, secondary Device, req api.DeviceRequest) {
 	verifyDeviceRequest(t, primary, req)
 	assert.Equal(t, secondary.MetroCode, req.Secondary.MetroCode, "Secondary MetroCode matches")
+	assert.Equal(t, secondary.ProjectId, req.Secondary.ProjectId, "ProjectId matches")
 	assert.Equal(t, secondary.LicenseToken, req.Secondary.LicenseToken, "LicenseFileID matches")
 	assert.Equal(t, secondary.LicenseFileID, req.Secondary.LicenseFileID, "LicenseFileID matches")
 	assert.Equal(t, secondary.Name, req.Secondary.VirtualDeviceName, "Secondary Name matches")
