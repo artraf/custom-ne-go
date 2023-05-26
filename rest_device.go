@@ -62,13 +62,18 @@ func (c RestClient) CreateRedundantDevice(primary Device, secondary Device) (*st
 
 //GetDevice fetches details of a device with a given UUID
 func (c RestClient) GetDevice(uuid string) (*Device, error) {
-	path := "/ne/v1/devices/" + url.PathEscape(uuid)
-	result := api.Device{}
-	request := c.R().SetResult(&result)
-	if err := c.Execute(request, http.MethodGet, path); err != nil {
-		return nil, err
+	path := "/ne/v1/devices"
+	content, err := c.GetOffsetPaginated(path, &api.DevicesResponse{},
+		rest.DefaultOffsetPagingConfig().
+			SetAdditionalParams(map[string]string{"status": "PROVISIONED,DEPROVISIONED"}))
+	if err == nil {
+	    for i := range content {
+	        if *mapDeviceAPIToDomain(content[i].(api.Device)).UUID == uuid {
+	    	    return mapDeviceAPIToDomain(content[i].(api.Device)), nil
+	    	}
+	    }
 	}
-	return mapDeviceAPIToDomain(result), nil
+	return nil, err
 }
 
 //GetDevices retrieves list of devices (along with their details) with given list of statuses

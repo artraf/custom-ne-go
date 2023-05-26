@@ -200,23 +200,37 @@ func TestCreateClusterDevice(t *testing.T) {
 }
 
 func TestGetDevice(t *testing.T) {
-	//given
-	resp := api.Device{}
-	if err := readJSONData("./test-fixtures/ne_device_get_resp.json", &resp); err != nil {
-		assert.Fail(t, "Cannot read test response")
+	//Given
+	var respBody api.DevicesResponse
+	if err := readJSONData("./test-fixtures/ne_device_get_resp.json", &respBody); err != nil {
+		assert.Failf(t, "cannot read test response due to %s", err.Error())
 	}
-	devID := "myDevice"
-	testHc := setupMockedClient("GET", fmt.Sprintf("%s/ne/v1/devices/%s", baseURL, devID), 200, resp)
+	limit := respBody.Pagination.Limit
+	testHc := &http.Client{}
+	httpmock.ActivateNonDefault(testHc)
+	httpmock.RegisterResponder("GET", fmt.Sprintf("%s/ne/v1/devices?limit=%d&status=%s", baseURL, limit,
+	url.QueryEscape("PROVISIONED,DEPROVISIONED")),
+		func(r *http.Request) (*http.Response, error) {
+			resp, _ := httpmock.NewJsonResponse(200, respBody)
+			return resp, nil
+		},
+	)
 	defer httpmock.DeactivateAndReset()
+    devID := "b1970e1e-2fee-47d7-a5c0-df41a1b02774"
 
-	//when
+	//When
 	c := NewClient(context.Background(), baseURL, testHc)
 	dev, err := c.GetDevice(devID)
+
 
 	//then
 	assert.NotNil(t, dev, "Returned device is not nil")
 	assert.Nil(t, err, "Error is not returned")
-	verifyDevice(t, *dev, resp)
+    for i := range respBody.Data {
+        if respBody.Data[i].UUID == &devID {
+		    verifyDevice(t, *dev, respBody.Data[i])
+		}
+	}
 }
 
 func TestGetDevices(t *testing.T) {
