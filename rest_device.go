@@ -65,7 +65,7 @@ func (c RestClient) GetDevice(uuid string) (*Device, error) {
 	path := "/ne/v1/devices"
 	content, err := c.GetOffsetPaginated(path, &api.DevicesResponse{},
 		rest.DefaultOffsetPagingConfig().
-			SetAdditionalParams(map[string]string{"status": "PROVISIONED,DEPROVISIONED"}))
+			SetAdditionalParams(map[string]string{"status": "PROVISIONED,DEPROVISIONED,INITIALIZING,PROVISIONING,WAITING_FOR_SECONDARY,CLUSTER_SETUP_IN_PROGRESS"}))
 	if err == nil {
 	    for i := range content {
 	        if *mapDeviceAPIToDomain(content[i].(api.Device)).UUID == uuid {
