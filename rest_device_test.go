@@ -209,7 +209,7 @@ func TestGetDevice(t *testing.T) {
 	testHc := &http.Client{}
 	httpmock.ActivateNonDefault(testHc)
 	httpmock.RegisterResponder("GET", fmt.Sprintf("%s/ne/v1/devices?limit=%d&status=%s", baseURL, limit,
-	url.QueryEscape("PROVISIONED,DEPROVISIONED,INITIALIZING,PROVISIONING,WAITING_FOR_SECONDARY,CLUSTER_SETUP_IN_PROGRESS")),
+	url.QueryEscape("PROVISIONED,DEPROVISIONED,INITIALIZING,PROVISIONING,DEPROVISIONING,WAITING_FOR_SECONDARY,CLUSTER_SETUP_IN_PROGRESS")),
 		func(r *http.Request) (*http.Response, error) {
 			resp, _ := httpmock.NewJsonResponse(200, respBody)
 			return resp, nil
